@@ -36,9 +36,10 @@ namespace BattleShipGame
             pointThatTheBackOfCurrentShipIsOn = Convert.ToInt32(Console.ReadLine());
             return pointThatTheBackOfCurrentShipIsOn;
         }
-        public int GuessByUserOnLocationOfOpponentsShip( int userOneOrUserTwo)
+        public int GuessByUserOnLocationOfOpponentsShip(string usersname)
         {
-            Console.WriteLine("What is the point you would like to fire a shot at? (Enter X axis number followed directly by Y axis number) ");
+            Console.WriteLine("Its is " + usersname + " turn! ");
+            Console.WriteLine("What is the point you would like to fire a shot at Player? (Enter X axis number followed directly by Y axis number) ");
             userGuessOnLocationOfOpponentsShip = Convert.ToInt32(Console.ReadLine());
             return userGuessOnLocationOfOpponentsShip;
         }

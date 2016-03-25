@@ -15,22 +15,21 @@ namespace BattleShipGame
         
         public User(int user)
         {
-        UsersInput.GetUsersName(user);
+            UsersInput.GetUsersName(user);
             gameBoard.FillTwoDListShowsUsersShipsAndOpponentsHitsAndMissesLocationsWithO();
             gameBoard.FillTwoDListShowsUsersThereHitsAndMissesOnOpponentsBoardWithO();
             while (indexofship <= 3)
             {
-                gameBoard.PrintOutListofUsersHitsanddMissesAndShipLocationsOrListOfThereHitsAndMissesOnOpponentBoard();
+                gameBoard.PrintOutListofOpponenetsHitsanddMissesAndUsersShipLocations();
+
+
                 int PlayerOneShipStart = UsersInput.ShipLocationsStartingPoint(indexofship);
                 int PlayerOneShipDirection = UsersInput.ShipDirectionUserWantsItToGoOnGameBoard(indexofship);
-                MakeSureUserCanPlaceShipHere.ShipPlacementIsGoodOrBad(PlayerOneShipStart, PlayerOneShipDirection, gameBoard, indexofship);
+                int isPositionValidOrInvalid = MakeSureUserCanPlaceShipHere.ShipPlacementIsGoodOrBad(PlayerOneShipStart, PlayerOneShipDirection, gameBoard, indexofship);
                 indexofship++;
+                indexofship = indexofship+isPositionValidOrInvalid;
             }
-            gameBoard.PrintOutListofUsersHitsanddMissesAndShipLocationsOrListOfThereHitsAndMissesOnOpponentBoard();
-
-        
+            gameBoard.PrintOutListofOpponenetsHitsanddMissesAndUsersShipLocations();
         }
-
-
     }
 }

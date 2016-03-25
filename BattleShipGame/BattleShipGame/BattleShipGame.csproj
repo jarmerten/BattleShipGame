@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckIfGameWon.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameBoard.cs" />
     <Compile Include="Program.cs" />
@@ -51,7 +52,6 @@
     <Compile Include="User.cs" />
     <Compile Include="UsersInput.cs" />
     <Compile Include="ValidateShipPlaceMent.cs" />
-    <Compile Include="WinOrLose.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

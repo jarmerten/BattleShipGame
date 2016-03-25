@@ -20,8 +20,6 @@ namespace BattleShipGame
             public List<List<char>> CreateTwoDListShowsUsersThereHitsAndMissesOnOpponentsBoard = new List<List<char>>();
             public List<char> GraphsTheTwoDListThatShowsUsersThereHitsAndMissesOnOpponentsBoard = new List<char>();
 
-
-   
         public void FillTwoDListShowsUsersShipsAndOpponentsHitsAndMissesLocationsWithO()
         {
             CreateTwoDListShowsUsersShipsAndOpponentsHitsAndMissesLocations.Add(GraphsTheTwoDListThatShowsUsersShipsAndOpponentsHitsAndMissesLocations);
@@ -46,7 +44,37 @@ namespace BattleShipGame
                 }
             }
         }
-        public void PrintOutListofUsersHitsanddMissesAndShipLocationsOrListOfThereHitsAndMissesOnOpponentBoard()
+        public void PrintOutListofOpponenetsHitsanddMissesAndUsersShipLocations()
+        {
+            HeadingForTheGameBoardXais();
+            foreach (List<char> index in CreateTwoDListShowsUsersShipsAndOpponentsHitsAndMissesLocations)
+            {
+                    Console.WriteLine();
+                    SideHeadingForTheGameBoardYaxis();
+                    foreach (char star in index)
+                    {
+                        Console.Write(" ");
+                        Console.Write(star);
+                    }
+            }
+            Console.ReadLine();
+        }
+            public void PrintOutListofUsersListOfThereHitsAndMissesOnOpponentBoard()
+             {
+            HeadingForTheGameBoardXais();
+            foreach (List<char> index in CreateTwoDListShowsUsersThereHitsAndMissesOnOpponentsBoard)
+            {
+                Console.WriteLine();
+                SideHeadingForTheGameBoardYaxis();
+                foreach (char star in index)
+                {
+                    Console.Write(" ");
+                    Console.Write(star);
+                }
+            }
+            Console.ReadLine();
+        }
+            public void HeadingForTheGameBoardXais()
         {
             Console.ReadLine();
             Console.WriteLine("             X Axis ");
@@ -61,72 +89,75 @@ namespace BattleShipGame
             }
             Console.WriteLine();
             Console.Write("       -------------------");
-            foreach(List<char> index in CreateTwoDListShowsUsersShipsAndOpponentsHitsAndMissesLocations)
+        }
+        public void SideHeadingForTheGameBoardYaxis()
+        {
+            String kaxis = "   " + (counter) + ":|";
+            switch (location)
             {
-                Console.WriteLine();
-                String kaxis = "   " + (counter) + ":|";
-                if (location == 0)
-                {
-                    kaxis = "   " + (counter) + ":|";
-                    Console.Write(kaxis);
-                }
-                else if (location == 1)
-                {
-                    kaxis = "   " + (counter) + ":|";
-                    Console.Write(kaxis);
-                }
-                else if (location == 2)
-                {
-                    kaxis = " Y " + (counter) + ":|";
-                    Console.Write(kaxis);
-                }
-                else if (location == 3)
-                {
-                    kaxis = " - " + (counter) + ":|";
-                    Console.Write(kaxis);
-                }
-                else if (location == 4)
-                {
-                    kaxis = " A " + (counter) + ":|";
-                    Console.Write(kaxis);
-                }
-                else if (location == 5)
-                {
-                    kaxis = " X " + (counter) + ":|";
-                    Console.Write(kaxis);
-                }
-                else if (location == 6)
-                {
-                    kaxis = " I " + (counter) + ":|";
-                    Console.Write(kaxis);
-                }
-                else if (location == 7)
-                {
-                    kaxis = " S " + (counter) + ":|";
-                    Console.Write(kaxis);
-                }
-                else if (location == 8)
-                {
-                    kaxis = "   " + (counter) + ":|";
-                    Console.Write(kaxis);
-                }
-                else if (location == 9)
-                {
-                    kaxis = "   " + (counter) + ":|";
-                    Console.Write(kaxis);
-                }
-                counter++;
-                location++;
-                foreach (char star in index)
-                {
-                    Console.Write(" ");
-                    Console.Write(star);
-                }
+                case 0:
+                    {
+                        Console.Write(kaxis);
+                        break;
+                    }
+                case 1:
+                    {
+                        Console.Write(kaxis);
+                        break;
+                    }
+                case 2:
+                    {
+                        kaxis = " Y " + (counter) + ":|";
+                        Console.Write(kaxis);
+                        break;
+                    }
+                case 3:
+                    {
+                        kaxis = " - " + (counter) + ":|";
+                        Console.Write(kaxis);
+                        break;
+                    }
+                case 4:
+                    {
+                        kaxis = " A " + (counter) + ":|";
+                        Console.Write(kaxis);
+                        break;
+                    }
+                case 5:
+                    {
+                        kaxis = " X " + (counter) + ":|";
+                        Console.Write(kaxis);
+                        break;
+                    }
+                case 6:
+                    {
+                        kaxis = " I " + (counter) + ":|";
+                        Console.Write(kaxis);
+                        break;
+                    }
+                case 7:
+                    {
+                        kaxis = " S " + (counter) + ":|";
+                        Console.Write(kaxis);
+                        break;
+                    }
+                case 8:
+                    {
+                        Console.Write(kaxis);
+                        break;
+                    }
+                case 9:
+                    {
+                        Console.Write(kaxis);
+                        break;
+                    }
+                default:
+                    {
+                        break;
+                    }
             }
-            Console.ReadLine();
-        
-
-
-        }
-        }
+                    counter++;
+                    location++;
+            }
+        }   
     }

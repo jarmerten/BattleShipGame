@@ -11,7 +11,7 @@ namespace BattleShipGame
         static void Main(string[] args)
         {
             Game LetsPlay = new Game();
-            LetsPlay.GetUsersShipPlacementsOnThereBoard();
+            LetsPlay.PlayUntilWinner();
         }
     }
 }
