@@ -14,40 +14,40 @@ namespace BattleShipGame
             public int column;
             public int counter = 0;
 
-            public List<List<char>> CreateTwoDListShowsUsersShipsAndOpponentsHitsAndMissesLocations = new List<List<char>>();
+            public List<List<char>> TwoDListShowsUsersShipsAndOpponentsHitsAndMissesLocations = new List<List<char>>();
             public List<char> GraphsTheTwoDListThatShowsUsersShipsAndOpponentsHitsAndMissesLocations = new List<char>();
 
-            public List<List<char>> CreateTwoDListShowsUsersThereHitsAndMissesOnOpponentsBoard = new List<List<char>>();
+            public List<List<char>> TwoDListShowsUsersThereHitsAndMissesOnOpponentsBoard = new List<List<char>>();
             public List<char> GraphsTheTwoDListThatShowsUsersThereHitsAndMissesOnOpponentsBoard = new List<char>();
 
         public void FillTwoDListShowsUsersShipsAndOpponentsHitsAndMissesLocationsWithO()
         {
-            CreateTwoDListShowsUsersShipsAndOpponentsHitsAndMissesLocations.Add(GraphsTheTwoDListThatShowsUsersShipsAndOpponentsHitsAndMissesLocations);
+            TwoDListShowsUsersShipsAndOpponentsHitsAndMissesLocations.Add(GraphsTheTwoDListThatShowsUsersShipsAndOpponentsHitsAndMissesLocations);
             for (row = 0; row < rowsAndColumnsInsideThe2dArray; row++)
             {
-                CreateTwoDListShowsUsersShipsAndOpponentsHitsAndMissesLocations.Add(new List<char>());
+                TwoDListShowsUsersShipsAndOpponentsHitsAndMissesLocations.Add(new List<char>());
                 for (column = 0; column < rowsAndColumnsInsideThe2dArray; column++)
                 {
-                    CreateTwoDListShowsUsersShipsAndOpponentsHitsAndMissesLocations[row].Add('O');
+                    TwoDListShowsUsersShipsAndOpponentsHitsAndMissesLocations[row].Add('O');
                 }
             }            
         }
         public void FillTwoDListShowsUsersThereHitsAndMissesOnOpponentsBoardWithO()
         {
-            CreateTwoDListShowsUsersThereHitsAndMissesOnOpponentsBoard.Add(GraphsTheTwoDListThatShowsUsersThereHitsAndMissesOnOpponentsBoard);
+            TwoDListShowsUsersThereHitsAndMissesOnOpponentsBoard.Add(GraphsTheTwoDListThatShowsUsersThereHitsAndMissesOnOpponentsBoard);
             for (row = 0; row < rowsAndColumnsInsideThe2dArray; row++)
             {
-                CreateTwoDListShowsUsersThereHitsAndMissesOnOpponentsBoard.Add(new List<char>());
+                TwoDListShowsUsersThereHitsAndMissesOnOpponentsBoard.Add(new List<char>());
                 for (column = 0; column < rowsAndColumnsInsideThe2dArray; column++)
                 {
-                    CreateTwoDListShowsUsersThereHitsAndMissesOnOpponentsBoard[row].Add('O');
+                    TwoDListShowsUsersThereHitsAndMissesOnOpponentsBoard[row].Add('O');
                 }
             }
         }
         public void PrintOutListofOpponenetsHitsanddMissesAndUsersShipLocations()
         {
             HeadingForTheGameBoardXais();
-            foreach (List<char> index in CreateTwoDListShowsUsersShipsAndOpponentsHitsAndMissesLocations)
+            foreach (List<char> index in TwoDListShowsUsersShipsAndOpponentsHitsAndMissesLocations)
             {
                     Console.WriteLine();
                     SideHeadingForTheGameBoardYaxis();
@@ -57,12 +57,11 @@ namespace BattleShipGame
                         Console.Write(star);
                     }
             }
-            Console.ReadLine();
         }
             public void PrintOutListofUsersListOfThereHitsAndMissesOnOpponentBoard()
              {
             HeadingForTheGameBoardXais();
-            foreach (List<char> index in CreateTwoDListShowsUsersThereHitsAndMissesOnOpponentsBoard)
+            foreach (List<char> index in TwoDListShowsUsersThereHitsAndMissesOnOpponentsBoard)
             {
                 Console.WriteLine();
                 SideHeadingForTheGameBoardYaxis();
@@ -72,11 +71,9 @@ namespace BattleShipGame
                     Console.Write(star);
                 }
             }
-            Console.ReadLine();
         }
             public void HeadingForTheGameBoardXais()
         {
-            Console.ReadLine();
             Console.WriteLine("             X Axis ");
             counter = 0;
             location = 0;

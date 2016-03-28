@@ -8,25 +8,27 @@ namespace BattleShipGame
 {
     class ShipHitOrMiss
     {
-        public int CheckIfUserHitOrMissOpponent(int PlayerOneShipStart, GameBoard gameboard)
+        public int CheckIfUserHitOrMissOpponent(int playerOneShipStart, GameBoard gameboard)
         {
             int totalHitsOnOpponent;
-            int firstnumber = PlayerOneShipStart / 10 % 10;
-            Console.WriteLine(firstnumber);
-            int secondnumber = PlayerOneShipStart % 10;
-            Console.WriteLine(secondnumber);
+            int firstNumberOfUserEntry = playerOneShipStart / 10 % 10;
+            Console.WriteLine(firstNumberOfUserEntry);
+            int secondNumberOfUserEntry = playerOneShipStart % 10;
+            Console.WriteLine(secondNumberOfUserEntry);
             
-            if(gameboard.CreateTwoDListShowsUsersShipsAndOpponentsHitsAndMissesLocations[secondnumber][firstnumber] == '=')
+            if(gameboard.TwoDListShowsUsersShipsAndOpponentsHitsAndMissesLocations[secondNumberOfUserEntry][firstNumberOfUserEntry] == '■')
             {
                 Console.WriteLine("You Hit There Ship!!!");
-                gameboard.CreateTwoDListShowsUsersThereHitsAndMissesOnOpponentsBoard[secondnumber][firstnumber] = 'H';
+                gameboard.TwoDListShowsUsersThereHitsAndMissesOnOpponentsBoard[secondNumberOfUserEntry][firstNumberOfUserEntry] = 'H';
+                gameboard.TwoDListShowsUsersShipsAndOpponentsHitsAndMissesLocations[secondNumberOfUserEntry][firstNumberOfUserEntry] = 'H';
                 totalHitsOnOpponent = 1;
                 return totalHitsOnOpponent;
             }
             else
             {
                 Console.WriteLine("You Missed There Ship!!!");
-                gameboard.CreateTwoDListShowsUsersThereHitsAndMissesOnOpponentsBoard[secondnumber][firstnumber] = 'M';
+                gameboard.TwoDListShowsUsersThereHitsAndMissesOnOpponentsBoard[secondNumberOfUserEntry][firstNumberOfUserEntry] = 'M';
+                gameboard.TwoDListShowsUsersShipsAndOpponentsHitsAndMissesLocations[secondNumberOfUserEntry][firstNumberOfUserEntry] = 'M';
                 totalHitsOnOpponent = 0;
                 return totalHitsOnOpponent;
             }        

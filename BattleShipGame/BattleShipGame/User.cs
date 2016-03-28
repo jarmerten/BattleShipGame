@@ -11,25 +11,26 @@ namespace BattleShipGame
         public UsersInput UsersInput = new UsersInput();
         public GameBoard gameBoard = new GameBoard();
         public ValidateShipPlaceMent MakeSureUserCanPlaceShipHere = new ValidateShipPlaceMent();
-        int indexofship = 0;
+        int indexOfShip = 0;
         
         public User(int user)
         {
             UsersInput.GetUsersName(user);
             gameBoard.FillTwoDListShowsUsersShipsAndOpponentsHitsAndMissesLocationsWithO();
             gameBoard.FillTwoDListShowsUsersThereHitsAndMissesOnOpponentsBoardWithO();
-            while (indexofship <= 3)
+            while (indexOfShip <= 3)
             {
                 gameBoard.PrintOutListofOpponenetsHitsanddMissesAndUsersShipLocations();
-
-
-                int PlayerOneShipStart = UsersInput.ShipLocationsStartingPoint(indexofship);
-                int PlayerOneShipDirection = UsersInput.ShipDirectionUserWantsItToGoOnGameBoard(indexofship);
-                int isPositionValidOrInvalid = MakeSureUserCanPlaceShipHere.ShipPlacementIsGoodOrBad(PlayerOneShipStart, PlayerOneShipDirection, gameBoard, indexofship);
-                indexofship++;
-                indexofship = indexofship+isPositionValidOrInvalid;
+                int playerShipStart = UsersInput.ShipLocationsStartingPoint(indexOfShip);
+                int playerShipDirection = UsersInput.ShipDirectionUserWantsItToGoOnGameBoard(indexOfShip);
+                int isPositionValidOrInvalid = MakeSureUserCanPlaceShipHere.ShipPlacementIsGoodOrBad(playerShipStart, playerShipDirection, gameBoard, indexOfShip);
+                indexOfShip++;
+                indexOfShip = indexOfShip+isPositionValidOrInvalid;
             }
             gameBoard.PrintOutListofOpponenetsHitsanddMissesAndUsersShipLocations();
+            Console.WriteLine("You finished placing your ships, press any key to clear your boards and allow second player to place ships ");
+            Console.ReadKey();
+            Console.Clear();
         }
     }
 }

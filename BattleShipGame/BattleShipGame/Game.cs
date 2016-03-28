@@ -13,7 +13,6 @@ namespace BattleShipGame
         User HoldsPlayerOneShipLocationsAndPlayerTwosHitsAndMisses = new User(1);
         User HoldsPlayerTwoShipLocationsAndPlayerOnessHitsAndMisses = new User(2);
         string gameStatus = "keepplaying";
-        int userTwoTurn = 0;
         int totalHitsOnPlayer2 = 0;
         int totalHitsOnPlayer1 = 0;
 
@@ -30,23 +29,33 @@ namespace BattleShipGame
         }
         public void UserOneAttackTurn()
         {
+            Console.WriteLine("This gameboard shows opponents hits and misses on your ships ");
             HoldsPlayerOneShipLocationsAndPlayerTwosHitsAndMisses.gameBoard.PrintOutListofOpponenetsHitsanddMissesAndUsersShipLocations();
+            Console.WriteLine("This gameboard shows your guesses that you hit and miss on your opponents board ");
             HoldsPlayerTwoShipLocationsAndPlayerOnessHitsAndMisses.gameBoard.PrintOutListofUsersListOfThereHitsAndMissesOnOpponentBoard();
-            int attackpoint = HoldsPlayerTwoShipLocationsAndPlayerOnessHitsAndMisses.UsersInput.GuessByUserOnLocationOfOpponentsShip(HoldsPlayerOneShipLocationsAndPlayerTwosHitsAndMisses.UsersInput.name);
+            int attackpoint = HoldsPlayerTwoShipLocationsAndPlayerOnessHitsAndMisses.UsersInput.GuessByUserOnLocationOfOpponentsShip(HoldsPlayerOneShipLocationsAndPlayerTwosHitsAndMisses.UsersInput.userName);
             int hitOrMiss = CheckTurn.CheckIfUserHitOrMissOpponent(attackpoint, HoldsPlayerTwoShipLocationsAndPlayerOnessHitsAndMisses.gameBoard);
             totalHitsOnPlayer2 = totalHitsOnPlayer2 + hitOrMiss;
-            gameStatus = DoWeHaveAWinner.CheckTotalScoreComparedToWinningTotal(totalHitsOnPlayer2, HoldsPlayerOneShipLocationsAndPlayerTwosHitsAndMisses.UsersInput.name);
+            gameStatus = DoWeHaveAWinner.CheckTotalScoreComparedToWinningTotal(totalHitsOnPlayer2, HoldsPlayerOneShipLocationsAndPlayerTwosHitsAndMisses.UsersInput.userName);
             HoldsPlayerTwoShipLocationsAndPlayerOnessHitsAndMisses.gameBoard.PrintOutListofUsersListOfThereHitsAndMissesOnOpponentBoard();
+            Console.WriteLine("Your turn is finished, press any key and enter to end your turn and clear boards for next player ");
+            Console.ReadKey();
+            Console.Clear();
         }
         public void UserTwoAttackTurn()
         {
+            Console.WriteLine("This gameboard shows opponents hits and misses on your ships ");
             HoldsPlayerTwoShipLocationsAndPlayerOnessHitsAndMisses.gameBoard.PrintOutListofOpponenetsHitsanddMissesAndUsersShipLocations();
+            Console.WriteLine("This gameboard shows your guesses that you hit and miss on your opponents board ");
             HoldsPlayerOneShipLocationsAndPlayerTwosHitsAndMisses.gameBoard.PrintOutListofUsersListOfThereHitsAndMissesOnOpponentBoard();
-            int attackpoint = HoldsPlayerOneShipLocationsAndPlayerTwosHitsAndMisses.UsersInput.GuessByUserOnLocationOfOpponentsShip(HoldsPlayerTwoShipLocationsAndPlayerOnessHitsAndMisses.UsersInput.name);
+            int attackpoint = HoldsPlayerOneShipLocationsAndPlayerTwosHitsAndMisses.UsersInput.GuessByUserOnLocationOfOpponentsShip(HoldsPlayerTwoShipLocationsAndPlayerOnessHitsAndMisses.UsersInput.userName);
             int hitOrMiss = CheckTurn.CheckIfUserHitOrMissOpponent(attackpoint, HoldsPlayerOneShipLocationsAndPlayerTwosHitsAndMisses.gameBoard);
             totalHitsOnPlayer1 = totalHitsOnPlayer1 + hitOrMiss;
-            gameStatus = DoWeHaveAWinner.CheckTotalScoreComparedToWinningTotal(totalHitsOnPlayer1, HoldsPlayerTwoShipLocationsAndPlayerOnessHitsAndMisses.UsersInput.name);
+            gameStatus = DoWeHaveAWinner.CheckTotalScoreComparedToWinningTotal(totalHitsOnPlayer1, HoldsPlayerTwoShipLocationsAndPlayerOnessHitsAndMisses.UsersInput.userName);
             HoldsPlayerOneShipLocationsAndPlayerTwosHitsAndMisses.gameBoard.PrintOutListofUsersListOfThereHitsAndMissesOnOpponentBoard();
+            Console.WriteLine("Your turn is finished, press any key and enter to end your turn and clear boards for next player ");
+            Console.ReadKey();
+            Console.Clear();
         }
     }
 }
